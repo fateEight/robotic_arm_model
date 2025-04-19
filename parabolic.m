@@ -21,9 +21,8 @@ function [a, b, c] = parabolic(points, i, f)
             end
         end
         if all_fail
-            return  % Return the valid n
+            return
         end
-    end
-    
-error('No suitable n found.')  % This will be triggered if no n is found
+    end  
+error('No suitable n found.')
 end
