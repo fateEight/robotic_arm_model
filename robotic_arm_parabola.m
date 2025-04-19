@@ -25,10 +25,13 @@ function robotic_arm_parabola(a, b, c)
         x2 = x1 + L2 * cos(theta1 + theta2);
         y2 = y1 + L2 * sin(theta1 + theta2);
         cla;
-        plot(x_vals, y_vals, 'k--', 'LineWidth', 1.5);
-        plot([0, x1], [0, y1], 'b', 'LineWidth', 3);
-        plot([x1, x2], [y1, y2], 'r', 'LineWidth', 3);
+        plot(x_vals, y_vals, 'k--', 'MarkerFaceColor', 'k');
+        plot(0, 0, 'ks', 'MarkerSize', 10, 'MarkerFaceColor', 'k');
+        plot([0, x1], [0, y1], 'b', 'LineWidth', 6);
+        plot([x1, x2], [y1, y2], 'r', 'LineWidth', 8);
+        plot(x1, y1, 'ko', 'MarkerSize', 8, 'MarkerFaceColor', 'k');
         plot(x2, y2, 'go', 'MarkerSize', 6, 'MarkerFaceColor', 'g');
+        plot(x, y, 'mo', 'MarkerSize', 8, 'MarkerFaceColor', 'm');
         xlim([-20, 20]);
         ylim([-25, 25]);
         pause(0.02);
