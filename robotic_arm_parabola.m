@@ -3,7 +3,6 @@ function robotic_arm_parabola(a, b, c)
     L2 = 10;
     x_vals = linspace(-10, 10, 200);
     y_vals = a * x_vals.^2 + b * x_vals + c;
-
     figure;
     hold on;
     plot(x_vals, y_vals, 'k--', 'LineWidth', 1.5);
@@ -12,31 +11,26 @@ function robotic_arm_parabola(a, b, c)
     title('2-Link Robotic Arm Following a Parabola');
     xlabel('X');
     ylabel('Y');
-
     for i = 1:length(x_vals)
         x = x_vals(i);
         y = y_vals(i);
-
         D = (x^2 + y^2 - L1^2 - L2^2) / (2 * L1 * L2);
         if abs(D) > 1
             continue
         end
-
         theta2 = atan2(sqrt(1 - D^2), D);
         theta1 = atan2(y, x) - atan2(L2 * sin(theta2), L1 + L2 * cos(theta2));
-
         x1 = L1 * cos(theta1);
         y1 = L1 * sin(theta1);
         x2 = x1 + L2 * cos(theta1 + theta2);
         y2 = y1 + L2 * sin(theta1 + theta2);
-
         cla;
         plot(x_vals, y_vals, 'k--', 'LineWidth', 1.5);
         plot([0, x1], [0, y1], 'b', 'LineWidth', 3);
         plot([x1, x2], [y1, y2], 'r', 'LineWidth', 3);
         plot(x2, y2, 'go', 'MarkerSize', 6, 'MarkerFaceColor', 'g');
         xlim([-20, 20]);
-        ylim([-5, 25]);
+        ylim([-25, 25]);
         pause(0.02);
     end
 end
